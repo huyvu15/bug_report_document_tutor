@@ -1,7 +1,3 @@
-
-/**
- * Hàm xử lý HTTP POST request (nhận dữ liệu báo cáo lỗi và ghi vào Sheet)
- */
 function doPost(e) {
   try {
     // Lấy sheet thao tác. (Có thể chỉ định rõ bằng: SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Báo Cáo Lỗi"))
@@ -12,6 +8,7 @@ function doPost(e) {
     
     // Trích xuất các trường dữ liệu
     var khoi = requestData.khoi || '';
+    var chuong = requestData.chuong || '';
     var bai_id = requestData.bai_id || '';
     var ten_bai = requestData.ten_bai || '';
     var nguoi_bao_cao = requestData.nguoi_bao_cao || '';
@@ -26,6 +23,7 @@ function doPost(e) {
       var headers = [
         'Thời gian', 
         'Khối / Môn', 
+        'Chương',
         'Mã Bài (ID)', 
         'Tên Bài Học', 
         'Người báo cáo', 
@@ -44,6 +42,7 @@ function doPost(e) {
     sheet.appendRow([
       timestamp,
       khoi,
+      chuong,
       bai_id,
       ten_bai,
       nguoi_bao_cao,

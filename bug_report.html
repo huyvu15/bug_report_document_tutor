@@ -251,14 +251,20 @@
                         <input type="text" id="khoi" placeholder="VD: Toán 10" required>
                     </div>
                     <div class="form-group">
-                        <label for="bai_id">Mã Bài (ID)</label>
-                        <input type="text" id="bai_id" placeholder="Mã bài (nếu có)">
+                        <label for="chuong">Chương</label>
+                        <input type="text" id="chuong" placeholder="VD: Chương 1">
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="ten_bai">Tên Bài Học</label>
-                    <input type="text" id="ten_bai" placeholder="VD: Mệnh đề toán học" required>
+                <div class="form-row">
+                    <div class="form-group margin-b">
+                        <label for="ten_bai">Tên Bài Học</label>
+                        <input type="text" id="ten_bai" placeholder="VD: Mệnh đề toán học" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bai_id">Mã Bài</label>
+                        <input type="text" id="bai_id" placeholder="Mã bài (nếu có)">
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -300,7 +306,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const urlParams = new URLSearchParams(window.location.search);
-            const fields = ['khoi', 'bai_id', 'ten_bai'];
+            const fields = ['khoi', 'chuong', 'bai_id', 'ten_bai'];
             
             fields.forEach(field => {
                 const el = document.getElementById(field);
@@ -347,6 +353,7 @@
 
             const formData = {
                 khoi: document.getElementById('khoi').value,
+                chuong: document.getElementById('chuong').value,
                 bai_id: document.getElementById('bai_id').value,
                 ten_bai: document.getElementById('ten_bai').value,
                 nguoi_bao_cao: document.getElementById('nguoi_bao_cao').value,
@@ -357,7 +364,7 @@
             // ===========================================
             // ĐIỀN URL WEBHOOK GOOGLE APP SCRIPT VÀO ĐÂY
             // ===========================================
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbyCkPkARumRJCPOcbwp7wGe40Mn-vJ5sWB2JA9wIxUM565ZRrrMzetaLclQHOFjTXGe_Q/exec'; 
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxp_WCoENT3cTrrKJoGRbjnDSXc1BP6eTPlzxIHnvZLInzyVdJr_Qx-HVNNEmb4rhqM0Q/exec'; 
 
             if (!scriptURL) {
                 // Chế độ demo nếu chưa gắn link Google Script
